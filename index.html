@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/p5"></script>
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Tekenen in relatie tot studio</title>
+</head>
+
+<body>
+    <div>
+        <p id="bottomtext">Click op 1 voor een screenshot
+        <p>
+    </div>
+    <div class="scroll snap">
+        <div class="canvas" id="hoofdstuk1">
+            <div id="popupContainer">
+                <a target="_blank" href="https://editor.p5js.org/bobharterink/sketches/doHLV-qzp">
+                    <img id="popupImage" src="img/img1.jpeg" alt="Pop-up Afbeelding">
+                </a>
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk2">
+            <div id="popupContainer1">
+                <a target="_blank" href="https://editor.p5js.org/bobharterink/sketches/UobD4x7vd">
+                    <img id="popupImage1" src="img/img2.jpeg" alt="Pop-up Afbeelding">
+                </a>
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk3">
+            <div id="popupContainer2">
+                <a target="_blank" href="https://editor.p5js.org/bobharterink/sketches/BD4fn2CHq">
+                    <img id="popupImage2" src="img/img3.jpg" alt="Pop-up Afbeelding">
+                </a>
+            </div>
+        </div>
+        <a target="_blank" href="https://editor.p5js.org/bobharterink/sketches/0FZT5vkz1">
+            <div class="canvas" id="hoofdstuk4"></div>
+        </a>
+        <a target="_blank" href="https://editor.p5js.org/bobharterink/sketches/BD4fn2CHq">
+            <div class="canvas" id="hoofdstuk5"></div>
+        </a>
+        <div class="canvas" id="hoofdstuk6">
+            <div id="popupContainer5">
+                <img id="popupImage5" src="img/img6.JPG" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk7">
+            <div id="popupContainer6">
+                <img id="popupImage6" src="img/img7.jpeg" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk8">
+            <div id="popupContainer7">
+                <img id="popupImage7" src="img/img8.jpeg" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk9">
+            <div id="popupContainer8">
+                <img id="popupImage8" src="img/img9.jpeg" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk10">
+            <div id="popupContainer9">
+                <img id="popupImage9" src="img/img10.jpeg" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk11">
+            <div id="popupContainer10">
+                <img id="popupImage10" src="img/img11.JPG" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk12">
+            <div id="popupContainer11">
+                <img id="popupImage11" src="img/img12.JPG" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+        <div class="canvas" id="hoofdstuk13">
+            <div id="popupContainer12">
+                <img id="popupImage12" src="img/img13.JPG" alt="Pop-up Afbeelding">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk1' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 1 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement = document.getElementById('hoofdstuk1');
+        observer.observe(testElement);
+    </script>
+
+    <script>
+        const observer1 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk2' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 2 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement1 = document.getElementById('hoofdstuk2');
+        observer1.observe(testElement1);
+    </script>
+
+    <script>
+        const observer2 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk3' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 3 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement2 = document.getElementById('hoofdstuk3');
+        observer2.observe(testElement2);
+    </script>
+
+
+    <script>
+        const observer3 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk4' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 4 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement3 = document.getElementById('hoofdstuk4');
+        observer3.observe(testElement3);
+    </script>
+
+    <script>
+        const observer4 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk5' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 5 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement4 = document.getElementById('hoofdstuk5');
+        observer4.observe(testElement4);
+    </script>
+
+    <script>
+        const observer5 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk6' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 6 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement5 = document.getElementById('hoofdstuk6');
+        observer5.observe(testElement5);
+    </script>
+
+    <script>
+        const observer6 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk7' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 7 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement6 = document.getElementById('hoofdstuk7');
+        observer6.observe(testElement6);
+    </script>
+
+    <script>
+        const observer7 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk8' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 8 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement7 = document.getElementById('hoofdstuk8');
+        observer7.observe(testElement7);
+    </script>
+
+    <script>
+        const observer8 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk9' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op 9 voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement8 = document.getElementById('hoofdstuk9');
+        observer8.observe(testElement8);
+    </script>
+
+    <script>
+        const observer9 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk10' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op A voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement9 = document.getElementById('hoofdstuk10');
+        observer9.observe(testElement9);
+    </script>
+
+    <script>
+        const observer10 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk11' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op B voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement10 = document.getElementById('hoofdstuk11');
+        observer10.observe(testElement10);
+    </script>
+
+    <script>
+        const observer11 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk12' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op C voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement11 = document.getElementById('hoofdstuk12');
+        observer11.observe(testElement11);
+    </script>
+
+    <script>
+        const observer12 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk13' && entry.isIntersecting) {
+                    const bottomText = document.getElementById('bottomtext');
+                    bottomText.innerText = 'Click op D voor een screenshot';
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const testElement12 = document.getElementById('hoofdstuk13');
+        observer12.observe(testElement12);
+    </script>
+
+    <script>
+        const observer100 = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hoofdstuk9') {
+                    const canvas = document.getElementById('defaultCanvas8');
+
+                    if (entry.isIntersecting) {
+                        canvas.style.display = 'block';
+                    } else {
+                        canvas.style.display = 'none';
+                    }
+                }
+            });
+        }, {
+            rootMargin: '-300px'
+        });
+
+        const hoofdstuk2Element = document.getElementById('hoofdstuk9');
+        observer100.observe(hoofdstuk2Element);
+
+
+
+    </script>
+
+
+</body>
+
+</html>

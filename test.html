@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scrolling URL</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+      #target {
+        margin-top: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Scroll down the page!</h1>
+    <p>Scroll down to see the target element.</p>
+    <div id="target">
+      <h2>Target Element</h2>
+      <p>This is the target element.</p>
+    </div>
+    <script>
+      window.addEventListener("scroll", function() {
+        if (isElementInViewport(document.getElementById("target"))) {
+          history.replaceState(null, null, "#target");
+        } else {
+          history.replaceState(null, null, "");
+        }
+      });
+
+      function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+    </script>
+  </body>
+</html>
