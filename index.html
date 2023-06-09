@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/p5"></script>
-    <script src="script.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Tekenen in relatie tot studio</title>
@@ -90,10 +89,11 @@
 
 
 
+    <script src="script.js"></script>
 
 
 
-    <script>
+    <!--     <script>
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.target.id === 'hoofdstuk1' && entry.isIntersecting) {
@@ -302,30 +302,8 @@
         observer12.observe(testElement12);
     </script>
 
-    <script>
-        const observer100 = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.target.id === 'hoofdstuk9') {
-                    const canvas = document.getElementById('defaultCanvas8');
 
-                    if (entry.isIntersecting) {
-                        canvas.style.display = 'block';
-                    } else {
-                        canvas.style.display = 'none';
-                    }
-                }
-            });
-        }, {
-            rootMargin: '-300px'
-        });
-
-        const hoofdstuk2Element = document.getElementById('hoofdstuk9');
-        observer100.observe(hoofdstuk2Element);
-
-
-
-    </script>
-
+ -->
 
 </body>
 

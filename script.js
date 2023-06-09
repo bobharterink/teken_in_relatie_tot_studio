@@ -1,5 +1,7 @@
 
 let t = function(p) {
+    p.isRunning = true;
+
     let canvas;
   
     p.setup = function() {
@@ -7,6 +9,9 @@ let t = function(p) {
     }
   
     p.draw = function() {
+      if (!p.isRunning) {
+        return;
+      }
       p.background('white');
   
       p.beginShape();
@@ -43,11 +48,35 @@ let t = function(p) {
       }
     };
   };
+
+// Wrap the p5.js sketch with IntersectionObserver
+function initializeSketch() {
+  const observer111 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.target.id === 'hoofdstuk1' && entry.isIntersecting) {
+          hoofdstuk1.isRunning = true;
+          console.log('hoofdstuk1 is running');
+        } else {
+          hoofdstuk1.isRunning = false;
+          console.log('hoofdstuk1 is not running');
+        }
+      });
+    },{
+      rootMargin: '-100px'
+  });
+    const testElement = document.getElementById('hoofdstuk1');
+    observer111.observe(testElement);
+};
+
+
   
-  new p5(t, 'hoofdstuk1');
+const hoofdstuk1 = new p5(t, 'hoofdstuk1');
+  initializeSketch();
+
   
 
   let bm = function(v) {
+    v.isRunning1 = true;
 
 
     v.setup = function () {
@@ -55,6 +84,9 @@ let t = function(p) {
     }
     
     v.draw = function () {
+      if (!v.isRunning1) {
+        return;
+      }
       v.background(240);
       
           v.beginShape();
@@ -86,15 +118,42 @@ let t = function(p) {
     }
     };
       
-      new p5(bm, 'hoofdstuk2');
-
+  // Wrap the p5.js sketch with IntersectionObserver
+  function initializeSketch1() {
+    const observer112 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.target.id === 'hoofdstuk2' && entry.isIntersecting) {
+            hoofdstuk2.isRunning1 = true;
+            console.log('hoofdstuk2 is running');
+          } else {
+            hoofdstuk2.isRunning1 = false;
+            console.log('hoofdstuk2 is not running');
+          }
+        });
+      },{
+        rootMargin: '-100px'
+    });
+      const testElement1 = document.getElementById('hoofdstuk2');
+      observer112.observe(testElement1);
+  };
+  
+  
+    
+  const hoofdstuk2 = new p5(bm, 'hoofdstuk2');
+  initializeSketch1();
+  
   let q = function(y) {
+    y.isRunning2 = true;
+
 
     y.setup = function () {
     y.createCanvas(y.windowWidth, y.windowHeight);
   }
   
   y.draw = function () {
+    if (!y.isRunning2) {
+      return;
+    }
     y.background('black');
     y.fill('white')
     y.ellipse(y.windowWidth/2, y.windowHeight/2, 105+(y.mouseX/4), 105+(y.mouseX/4));
@@ -147,105 +206,35 @@ let t = function(p) {
   };
   };
   
-    new p5(q, 'hoofdstuk3');
-  
-
-    let w = function(m) {
-
-      let r3 = 255, g3 = 255, b3 = 255; 
-      let r2 = 255, g2 = 255, b2 = 255; 
-      let r1 = 255, g1 = 255, b1 = 255; 
-      let r = 255, g = 255, b = 255, bg = 255;
-      let x1, y1;
-      let x, y;
-      var words = ["Click on space!", "Click again :)", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "];
-      var index = 0;
-      
-      
-      m.setup = function () {
-        m.createCanvas(m.windowWidth, m.windowHeight);
-        x = 0;
-        y = m.height;
-        x1 = 0;
-        y1 = m.height;
-        m.textAlign(m.CENTER, m.CENTER);
-      }
-      
-       m.keyPressed = function () {
-          if (m.key === ' ') {
-            // Spacebar is pressed
-            // Perform your desired action here
-            r = m.random(255);
-            g = m.random(255);
-            b = m.random(255);
-            bg = m.random(255);
-            r1 = m.random(255);
-            g1 = m.random(255);
-            b1 = m.random(255);
-            r2 = m.random(255);
-            g2 = m.random(255);
-            b2 = m.random(255);
-            r3 = m.random(255);
-            g3 = m.random(255);
-            b3 = m.random(255);
-            index = index + 1;
-      
-            if (index == words.length) {
-              index = 0;
-            }
+  // Wrap the p5.js sketch with IntersectionObserver
+  function initializeSketch2() {
+    const observer113 = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.target.id === 'hoofdstuk3' && entry.isIntersecting) {
+            hoofdstuk3.isRunning2 = true;
+            console.log('hoofdstuk3 is running');
+          } else {
+            hoofdstuk3.isRunning2 = false;
+            console.log('hoofdstuk3 is not running');
           }
-        }
-        
-      m.draw = function () {
-        m.background(255)
-        m.noStroke();
-        m.fill(r, g, b);
-        m.square(0, 0, x);
-        m.fill(r1, g1, b1);
-        m.square(60, 60, y);
-        m.fill(r2, g2, b2);
-        m.square(m.windowWidth/2, m.windowHeight/2, x1);
-        m.fill(r3, g3, b3);
-        m.square(m.windowWidth/2-60, m.windowHeight/2-60, y1);
-        
-          // Jiggling randomly on the horizontal axis
-        x = x + 1;
-        // Moving up at a constant speed
-        y = y - 1;
-        
-          // Jiggling randomly on the horizontal axis
-        x1 = x1 + 1.5;
-        // Moving up at a constant speed
-        y1 = y1 - 1.5;
-        
-        // Reset to the bottom
-        if (y < 0) {
-          y = m.height;
-        }
-        
-        if (x > m.windowWidth) {
-          x = 0;
-        }
-        
-          // Reset to the bottom
-        if (y1 < 0) {
-          y1 = m.height;
-        }
-        
-        if (x1 > m.windowWidth/2) {
-          x1 = 0;
-        }
-        m.push();
-        m.textSize(32);
-        m.fill(0);
-        m.text(words[index], m.windowWidth/2, m.windowHeight/2);
-        m.pop();
-      }
-        };
-        
-        new p5(w, 'hoofdstuk5');
+        });
+      },{
+        rootMargin: '-100px'
+    });
+      const testElement2 = document.getElementById('hoofdstuk3');
+      observer113.observe(testElement2);
+  };
+  
+  
+    
+  const hoofdstuk3 = new p5(q, 'hoofdstuk3');
+  initializeSketch2();  
+
+   
+
 
           let b = function(n) {
+            n.isRunning3 = true;
 
             n.setup = function () {
               n.createCanvas(n.windowWidth, n.windowHeight);
@@ -253,6 +242,9 @@ let t = function(p) {
             }
             
             n.draw = function () {
+              if (!n.isRunning3) {
+                return;
+              }
               var x=n.mouseX;
                 if(n.mouseX>n.windowWidth/2+690/2-15){
                   x=n.windowWidth/2+690/2-15;
@@ -790,9 +782,149 @@ let t = function(p) {
               
                         };
                       
-                      new p5(b, 'hoofdstuk4');
+ // Wrap the p5.js sketch with IntersectionObserver
+ function initializeSketch3() {
+  const observer114 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.target.id === 'hoofdstuk4' && entry.isIntersecting) {
+          hoofdstuk4.isRunning3 = true;
+          console.log('hoofdstuk4 is running');
+        } else {
+          hoofdstuk4.isRunning3 = false;
+          console.log('hoofdstuk4 is not running');
+        }
+      });
+    },{
+      rootMargin: '-100px'
+  });
+    const testElement3 = document.getElementById('hoofdstuk4');
+    observer114.observe(testElement3);
+};
+    const hoofdstuk4 = new p5(b, 'hoofdstuk4');
+    initializeSketch3();  
+
+                      let w = function(m) {
+                        m.isRunning4 = true;
+                  
+                        let r3 = 255, g3 = 255, b3 = 255; 
+                        let r2 = 255, g2 = 255, b2 = 255; 
+                        let r1 = 255, g1 = 255, b1 = 255; 
+                        let r = 255, g = 255, b = 255, bg = 255;
+                        let x1, y1;
+                        let x, y;
+                        var words = ["Click on space!", "Click again :)", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "];
+                        var index = 0;
+                        
+                        
+                        m.setup = function () {
+                          m.createCanvas(m.windowWidth, m.windowHeight);
+                          x = 0;
+                          y = m.height;
+                          x1 = 0;
+                          y1 = m.height;
+                          m.textAlign(m.CENTER, m.CENTER);
+                        }
+                        
+                         m.keyPressed = function () {
+                            if (m.key === ' ') {
+                              // Spacebar is pressed
+                              // Perform your desired action here
+                              r = m.random(255);
+                              g = m.random(255);
+                              b = m.random(255);
+                              bg = m.random(255);
+                              r1 = m.random(255);
+                              g1 = m.random(255);
+                              b1 = m.random(255);
+                              r2 = m.random(255);
+                              g2 = m.random(255);
+                              b2 = m.random(255);
+                              r3 = m.random(255);
+                              g3 = m.random(255);
+                              b3 = m.random(255);
+                              index = index + 1;
+                        
+                              if (index == words.length) {
+                                index = 0;
+                              }
+                            }
+                          }
+                          
+                        m.draw = function () {
+                          if (!m.isRunning4) {
+                            return;
+                          }
+                          m.background(255)
+                          m.noStroke();
+                          m.fill(r, g, b);
+                          m.square(0, 0, x);
+                          m.fill(r1, g1, b1);
+                          m.square(60, 60, y);
+                          m.fill(r2, g2, b2);
+                          m.square(m.windowWidth/2, m.windowHeight/2, x1);
+                          m.fill(r3, g3, b3);
+                          m.square(m.windowWidth/2-60, m.windowHeight/2-60, y1);
+                          
+                            // Jiggling randomly on the horizontal axis
+                          x = x + 1;
+                          // Moving up at a constant speed
+                          y = y - 1;
+                          
+                            // Jiggling randomly on the horizontal axis
+                          x1 = x1 + 1.5;
+                          // Moving up at a constant speed
+                          y1 = y1 - 1.5;
+                          
+                          // Reset to the bottom
+                          if (y < 0) {
+                            y = m.height;
+                          }
+                          
+                          if (x > m.windowWidth) {
+                            x = 0;
+                          }
+                          
+                            // Reset to the bottom
+                          if (y1 < 0) {
+                            y1 = m.height;
+                          }
+                          
+                          if (x1 > m.windowWidth/2) {
+                            x1 = 0;
+                          }
+                          m.push();
+                          m.textSize(32);
+                          m.fill(0);
+                          m.text(words[index], m.windowWidth/2, m.windowHeight/2);
+                          m.pop();
+                        }
+                          };
+                          // Wrap the p5.js sketch with IntersectionObserver
+                    function initializeSketch4() {
+                      const observer115 = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.target.id === 'hoofdstuk5' && entry.isIntersecting) {
+                              hoofdstuk5.isRunning4 = true;
+                              console.log('hoofdstuk5 is running');
+                            } else {
+                              hoofdstuk5.isRunning4 = false;
+                              console.log('hoofdstuk5 is not running');
+                            }
+                          });
+                        },{
+                          rootMargin: '-100px'
+                      });
+                        const testElement4 = document.getElementById('hoofdstuk5');
+                        observer115.observe(testElement4);
+                    };
+                    
+                    
+                      
+                    const hoofdstuk5 = new p5(w, 'hoofdstuk5');
+                    initializeSketch4();  
 
                       let z = function(h) {
+                        h.isRunning5 = true;
 
                         let maxPosition = 0; // Variable to store the maximum position
                         let lineX; // X-coordinate of the h.line
@@ -818,6 +950,9 @@ let t = function(p) {
                         }
                         
                         h.draw = function () {
+                          if (!h.isRunning5) {
+                            return;
+                          }
                           h.background('#ffffff');
                                         // Check if the object is above the h.line
                           if (h.mouseX < lineXXXXXX) {
@@ -1008,10 +1143,34 @@ let t = function(p) {
                           }
                         }
                         };
+
+                                                  // Wrap the p5.js sketch with IntersectionObserver
+                    function initializeSketch5() {
+                      const observer116 = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.target.id === 'hoofdstuk6' && entry.isIntersecting) {
+                              hoofdstuk6.isRunning5 = true;
+                              console.log('hoofdstuk6 is running');
+                            } else {
+                              hoofdstuk6.isRunning5 = false;
+                              console.log('hoofdstuk6 is not running');
+                            }
+                          });
+                        },{
+                          rootMargin: '-100px'
+                      });
+                        const testElement5 = document.getElementById('hoofdstuk6');
+                        observer116.observe(testElement5);
+                    };
+                    
+                    
+                      
+                    const hoofdstuk6 = new p5(z, 'hoofdstuk6');
+                    initializeSketch5();  
                                     
-                        new p5(z, 'hoofdstuk6');
 
                         let v = function(o) {
+                          o.isRunning6 = true;
 
                           let traingleY; // X-coordinate of the h.line
                           let diepte; // X-coordinate of the h.line
@@ -1027,6 +1186,9 @@ let t = function(p) {
                           }
                           
                           o.draw = function () {
+                            if (!o.isRunning6) {
+                              return;
+                            }
                             o.background('#D9E0D2');
                             o.noStroke();
                             o.fill('#355559');
@@ -1107,11 +1269,33 @@ let t = function(p) {
                           
                           
                           }};
-                                                              
-                          new p5(v, 'hoofdstuk7');
+                    // Wrap the p5.js sketch with IntersectionObserver
+                    function initializeSketch6() {
+                      const observer117 = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.target.id === 'hoofdstuk7' && entry.isIntersecting) {
+                              hoofdstuk7.isRunning6 = true;
+                              console.log('hoofdstuk7 is running');
+                            } else {
+                              hoofdstuk7.isRunning6 = false;
+                              console.log('hoofdstuk7 is not running');
+                            }
+                          });
+                        },{
+                          rootMargin: '-100px'
+                      });
+                        const testElement6 = document.getElementById('hoofdstuk7');
+                        observer117.observe(testElement6);
+                    };
+                    
+                    
+                      
+                    const hoofdstuk7 = new p5(v, 'hoofdstuk7');
+                    initializeSketch6();                                    
 
                                               
 let i = function(k) {
+  k.isRunning7 = true;
   let canvasMaxWidth = 270; // Adjust this value as per your requirement
     let canvasMaxWidth1 = 300; // Adjust this value as per your requirement
 
@@ -1124,6 +1308,9 @@ let i = function(k) {
                       }
                       
                       k.draw = function () {
+                        if (!k.isRunning7) {
+                          return;
+                        }
                         // Verticale gradiëntkleuren
                         let kleurBoven = k.color(208, 218, 232); // Bovenste kleur (rood)
                         let kleurOnder = k.color(213, 222, 233); // Onderste kleur (blauw)
@@ -1189,10 +1376,34 @@ let i = function(k) {
                         
                       
                       }};
+
+                      // Wrap the p5.js sketch with IntersectionObserver
+                    function initializeSketch8() {
+                      const observer118 = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.target.id === 'hoofdstuk8' && entry.isIntersecting) {
+                              hoofdstuk8.isRunning7 = true;
+                              console.log('hoofdstuk8 is running');
+                            } else {
+                              hoofdstuk8.isRunning7 = false;
+                              console.log('hoofdstuk8 is not running');
+                            }
+                          });
+                        },{
+                          rootMargin: '-100px'
+                      });
+                        const testElement7 = document.getElementById('hoofdstuk8');
+                        observer118.observe(testElement7);
+                    };
+                    
+                    
                       
-                      new p5(i, 'hoofdstuk8');
+                    const hoofdstuk8 = new p5(i, 'hoofdstuk8');
+                    initializeSketch8(); 
+                      
 
                       let ji = function(kl) {
+                        kl.isRunning8 = true;
                         let currentColorIndex = 0; // Index of the current kl.color
                         let x = 0; // Initial x position of the shape
                         let fillColor; // Variable to store the kl.fill kl.color
@@ -1214,6 +1425,9 @@ let i = function(k) {
                         };
                       
                         kl.draw = function() {
+                          if (!kl.isRunning8) {
+                            return;
+                          }
                           // Update the position of the shape
                           x = x + 2;
                           x1 = x1 + 2;
@@ -1286,9 +1500,30 @@ let i = function(k) {
                           kl.clear(); // Clear the canvas
                         }
                       };
+
+                                            // Wrap the p5.js sketch with IntersectionObserver
+                    function initializeSketch9() {
+                      const observer119 = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.target.id === 'hoofdstuk9' && entry.isIntersecting) {
+                              hoofdstuk9.isRunning8 = true;
+                              console.log('hoofdstuk9 is running');
+                            } else {
+                              hoofdstuk9.isRunning8 = false;
+                              console.log('hoofdstuk9 is not running');
+                            }
+                          });
+                        },{
+                          rootMargin: '-100px'
+                      });
+                        const testElement9 = document.getElementById('hoofdstuk9');
+                        observer119.observe(testElement9);
+                    };
+                    
+                    
                       
-                      new p5(ji, 'hoofdstuk9');
-                      
+                    const hoofdstuk9 = new p5(ji, 'hoofdstuk9');
+                    initializeSketch9();                       
 
                           let bb = function(aa) {
 
@@ -1334,3 +1569,100 @@ let i = function(k) {
                             }}
                             
                             new p5(bb, 'hoofdstuk10');
+
+                            let ad = function(xw) {
+                              xw.isRunning10 = true;
+                              let squares = [];
+                              
+                                xw.setup = function () {
+                                xw.createCanvas(xw.windowWidth, xw.windowHeight);
+                                xw.rectMode(xw.CENTER);
+                              
+                                // Create seven Square objects
+                                squares.push(new Square(xw.windowWidth / 2, xw.windowHeight / 2, 50)); // Default size
+                                squares.push(new Square(xw.windowWidth / 2, xw.windowHeight / 2, 100)); // Larger size
+                                squares.push(new Square());
+                                squares.push(new Square());
+                                squares.push(new Square());
+                                squares.push(new Square());
+                                squares.push(new Square());
+                              
+                                // Set an interval to change the position every 5 seconds
+                                setInterval(changePositions, 5000);
+                              }
+                              
+                              xw.draw = function () {
+                                if (!xw.isRunning10) {
+                                return;
+                              }
+                                xw.background(0);
+                              
+                                // Update and draw each square
+                                for (let i = 0; i < squares.length; i++) {
+                                  squares[i].update();
+                                  squares[i].draw();
+                                }
+                              }
+                              
+                              function changePositions() {
+                                // Change the position of each square
+                                for (let i = 0; i < squares.length; i++) {
+                                  squares[i].changePosition();
+                                }
+                              }
+                              
+                              class Square {
+                                constructor(x = xw.windowWidth / 2, y = xw.windowHeight / 2, size = 50) {
+                                  this.currentX = x;
+                                  this.currentY = y;
+                                  this.targetX = this.currentX;
+                                  this.targetY = this.currentY;
+                                  this.size = size;
+                                }
+                              
+                                update() {
+                                  // Smoothly interpolate between current and target positions
+                                  this.currentX = xw.lerp(this.currentX, this.targetX, 0.05);
+                                  this.currentY = xw.lerp(this.currentY, this.targetY, 0.05);
+                                }
+                              
+                                draw() {
+                                  xw.noStroke();
+                                  xw.square(this.currentX, this.currentY, this.size);
+                                }
+                              
+                                changePosition() {
+                                  // Generate random target positions within the canvas
+                                  this.targetX = xw.random(xw.windowWidth);
+                                  this.targetY = xw.random(xw.windowHeight);
+                                }
+                              }
+                              
+                                };
+
+                                                                            // Wrap the p5.js sketch with IntersectionObserver
+                    function initializeSketch11() {
+                      const observer121 = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.target.id === 'hoofdstuk11' && entry.isIntersecting) {
+                              hoofdstuk11.isRunning10 = true;
+                              console.log('hoofdstuk11 is running');
+                            } else {
+                              hoofdstuk11.isRunning10 = false;
+                              console.log('hoofdstuk11 is not running');
+                            }
+                          });
+                        },{
+                          rootMargin: '-100px'
+                      });
+                        const testElement11 = document.getElementById('hoofdstuk11');
+                        observer121.observe(testElement11);
+                    };
+                    
+                    
+                      
+                    const hoofdstuk11 = new p5(ad, 'hoofdstuk11');
+                    initializeSketch11();    
+                                
+                                  new p5(ad, 'hoofdstuk11');
+                              
