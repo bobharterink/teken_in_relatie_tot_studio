@@ -199,23 +199,3 @@ window.addEventListener('load', function() {
         }
     });
   });
-
-  window.addEventListener('load', function() {
-    var popupContainer = document.getElementById('popupContainer12');
-    var popupImage = document.getElementById('popupImage12');
-    var clickArea = document.getElementById('hoofdstuk13');
-  
-    // Afbeelding automatisch laten verschijnen na 3 seconden
-    setTimeout(function() {
-      popupContainer.style.display = 'none';
-    });
-  
-    // Afbeelding laten verdwijnen/verschijnen wanneer erop wordt geklikt
-    clickArea.addEventListener('click', function() {
-        if (popupContainer.style.display === 'none') {
-          popupContainer.style.display = 'block';
-        } else {
-          popupContainer.style.display = 'none';
-        }
-    });
-  });

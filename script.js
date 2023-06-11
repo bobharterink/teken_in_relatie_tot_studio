@@ -1665,4 +1665,240 @@ let i = function(k) {
                     initializeSketch11();    
                                 
                                   new p5(ad, 'hoofdstuk11');
+
+                                  let dd = function(zz) {
+                                    zz.isRunning11 = true;
+                                    
+                                    //ga met qsdz, bekijken wat de mogelijkkheden zijn.
+                                    let squareSize; // Initial size of the square
+                                    let squareSize1; // Initial size of the square
+                                    let squareSize2;
+                                    let squareSize3;
+                                    let isqPressed = false; // Boolean variable to track 'q' zz.key state
+                                    let isdPressed = false; // Boolean variable to track 'd' zz.key state
+                                    let iszPressed = false; // Boolean variable to track 'A' zz.key state
+                                    let issPressed = false; // Boolean variable to track 'Z' zz.key state
+                                    
+                                    zz.setup = function () {
+                                      zz.createCanvas(zz.windowWidth, zz.windowHeight);
+                                      squareSize = zz.windowWidth / 2 + zz.windowWidth / 5; // Initialize the size of the square
+                                      squareSize1 = zz.windowHeight / 2 + zz.windowHeight / 5;
+                                      squareSize2 = 0;
+                                      squareSize3 = 0;
+                                    
+                                    
+                                    }
+                                    
+                                    zz.draw = function () {
+                                                                      if (!zz.isRunning11) {
+                                                                    return;
+                                                                  }
+                                      zz.background('#50A2A7');
+                                      
+                                    
+                                      // Check if the 'q' zz.key is held down
+                                      if (isqPressed) {
+                                        // Increase the size of the square
+                                        squareSize -= 5;
+                                        squareSize2 -=5;
+                                        squareSize3 -=5;
+                                      }
+                                    
+                                      // Check if the 'd' zz.key is held down
+                                      if (isdPressed) {
+                                        // Decrease the size of the square
+                                        squareSize += 5;
+                                        squareSize2 +=5;
+                                        squareSize3 +=5;
+                                    
+                                        
+                                      }
+                                      
+                                        // Check if the 'z' zz.key is held down
+                                      if (iszPressed) {
+                                        // Increase the size of the square
+                                        squareSize1 -= 5;
+                                        squareSize3 -=5;
+                                      }
+                                    
+                                      // Check if the 's' zz.key is held down
+                                      if (issPressed) {
+                                        // Decrease the size of the square
+                                        squareSize1 += 5;
+                                        squareSize3 +=5;
+                                      }
+                                      
+                                      zz.fill('#9B2915');
+                                      zz.strokeWeight(4)
+                                      zz.stroke('#1C110A');
+                                      zz.beginShape();
+                                      zz.vertex(0, 0);
+                                      zz.vertex(zz.windowWidth/10, 0);
+                                      zz.vertex(squareSize, squareSize1);
+                                      zz.vertex(squareSize, zz.windowHeight);
+                                      zz.vertex(0,zz.windowHeight);
+                                      zz.endShape();
+                                     
+                                      zz.fill('#E9B44C');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(0, zz.windowHeight/5);
+                                      zz.vertex(squareSize, squareSize1+zz.windowHeight/10);
+                                      zz.vertex(squareSize, zz.windowHeight / 2 + zz.windowHeight / 5+zz.windowHeight/10+10);
+                                      zz.vertex(0, zz.windowHeight/5+30);
+                                      zz.endShape();
+                                      
+                                      zz.fill('#E9B44C');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(0, zz.windowHeight/2+zz.windowHeight/4);
+                                      zz.vertex(squareSize, squareSize1+zz.windowHeight/4);
+                                      zz.vertex(squareSize, zz.windowHeight / 2 + zz.windowHeight / 5+zz.windowHeight/4+10);
+                                      zz.vertex(0, zz.windowHeight/2+zz.windowHeight/4+30);
+                                      zz.endShape();
+                                      
+                                        zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/10+squareSize2, 0+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/10+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/10-20+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/10-20+squareSize2, 0+squareSize3/2);
+                                      zz.endShape();
+                                      
+                                          zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/4+squareSize2, zz.windowHeight/5.8+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/4+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/4-18+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/4-18+squareSize2, zz.windowHeight/6.4+squareSize3/2);
+                                      zz.endShape();
+                                      
+                                            zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/2-zz.windowWidth/9+squareSize2, zz.windowHeight/3.0+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/2-zz.windowWidth/9+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2-zz.windowWidth/9-16+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2-zz.windowWidth/9-16+squareSize2, zz.windowHeight/3.15+squareSize3/2);
+                                      zz.endShape();
+                                              
+                                      zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/2+squareSize2, zz.windowHeight/2.15+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/2+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2-14+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2-14+squareSize2, zz.windowHeight/2.2+squareSize3/2);
+                                      zz.endShape();
+                                      
+                                        zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/12+squareSize2, zz.windowHeight/1.77+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/12+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/12-12+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/12-12+squareSize2, zz.windowHeight/1.83+squareSize3/2);
+                                      zz.endShape();
+                                      
+                                          zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/7+squareSize2, zz.windowHeight/1.59+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/7+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/7-10+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/7-10+squareSize2, zz.windowHeight/1.61+squareSize3/2);
+                                      zz.endShape();
+                                      
+                                            zz.fill('#E4D6A7');
+                                      zz.noStroke();
+                                      zz.beginShape();
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/5.5+squareSize2, zz.windowHeight/1.48+squareSize3/2);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/5.5+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/5.5-8+squareSize2, zz.windowHeight);
+                                      zz.vertex(zz.windowWidth/2+zz.windowWidth/5.5-8+squareSize2, zz.windowHeight/1.5+squareSize3/2);
+                                      zz.endShape();
+                                    
+                                    }
+                                      
+                                    zz.keyPressed = function () {
+                                      // Check if the 'q' zz.key is pressed
+                                      if (zz.key === 'q') {
+                                        // Set the 'q' zz.key state to true
+                                        isqPressed = true;
+                                      }
+                                    
+                                      // Check if the 'd' zz.key is pressed
+                                      if (zz.key === 'd') {
+                                        // Set the 'd' zz.key state to true
+                                        isdPressed = true;
+                                      }
+                                        // Check if the 'z' zz.key is pressed
+                                      if (zz.key === 'z') {
+                                        // Set the 'z' zz.key state to true
+                                        iszPressed = true;
+                                      }
+                                    
+                                      // Check if the 's' zz.key is pressed
+                                      if (zz.key === 's') {
+                                        // Set the 's' zz.key state to true
+                                        issPressed = true;
+                                      }
+                                    }
+                                    
+                                    zz.keyReleased = function () {
+                                      // Check if the 'q' zz.key is released
+                                      if (zz.key === 'q') {
+                                        // Set the 'q' zz.key state to false
+                                        isqPressed = false;
+                                      }
+                                    
+                                      // Check if the 'd' zz.key is released
+                                      if (zz.key === 'd') {
+                                        // Set the 'd' zz.key state to false
+                                        isdPressed = false;
+                                      }
+                                        // Check if the 'z' zz.key is released
+                                      if (zz.key === 'z') {
+                                        // Set the 'z' zz.key state to false
+                                        iszPressed = false;
+                                      }
+                                    
+                                      // Check if the 's' zz.key is released
+                                      if (zz.key === 's') {
+                                        // Set the 's' zz.key state to false
+                                        issPressed = false;
+                                      }
+                                    }
+                                      
+                                                                      };
+                                    
+                                                                               // Wrap the p5.js sketch with IntersectionObserver
+                                                        function initializeSketch12() {
+                                                          const observer122 = new IntersectionObserver(entries => {
+                                                            entries.forEach(entry => {
+                                                                if (entry.target.id === 'hoofdstuk12' && entry.isIntersecting) {
+                                                                  hoofdstuk12.isRunning11 = true;
+                                                                  console.log('hoofdstuk12 is running');
+                                                                } else {
+                                                                  hoofdstuk12.isRunning11 = false;
+                                                                  console.log('hoofdstuk12 is not running');
+                                                                }
+                                                              });
+                                                            },{
+                                                              rootMargin: '-100px'
+                                                          });
+                                                            const testElement12 = document.getElementById('hoofdstuk12');
+                                                                              initializeSketch12();    
+                                    
+                                                            observer122.observe(testElement12);
+                                                        };                                 
+                                                        
+                                                        
+                                                          
+                                                        const hoofdstuk12 = new p5(dd, 'hoofdstuk12');
+                                                                                        initializeSketch12();    
+                                    
+                                                                      new p5(dd, 'hoofdstuk12');
                               
