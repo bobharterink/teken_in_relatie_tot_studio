@@ -1890,7 +1890,6 @@ let i = function(k) {
                                                               rootMargin: '-100px'
                                                           });
                                                             const testElement12 = document.getElementById('hoofdstuk12');
-                                                                              initializeSketch12();    
                                     
                                                             observer122.observe(testElement12);
                                                         };                                 
